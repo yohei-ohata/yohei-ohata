@@ -1,0 +1,101 @@
+/* リセットやベーススタイルは別途リセットCSSを入れるのがおすすめ */
+
+a {
+  color: #1772d0;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #f09228;
+}
+
+/* ベースフォント */
+body, td, th {
+  font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* 独自見出しはクラスに */
+.heading {
+  font-size: 17px;
+  font-weight: 600;
+}
+.section-heading {
+  font-size: 22px;
+  font-weight: 600;
+}
+.page-heading {
+  font-size: 38px;
+  font-weight: 400;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.75),
+    transparent
+  );
+}
+
+strong {
+  font-weight: 600;
+}
+.strong-red {
+  color: red;
+  font-weight: 600;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+.image-border {
+  border: 1px solid #000;
+}
+
+span.highlight {
+  background-color: #ffffd0;
+}
+
+/* ───────────────────────────────────────────
+   Research Interests のボックス群を横並びに
+─────────────────────────────────────────── */
+.boxes-container {
+  display: flex;
+  justify-content: space-between; /* 両端寄せ＋等間隔 */
+  gap: 20px;                       /* ボックス間の余白 */
+  margin: 40px auto;               /* 上下マージン */
+  max-width: 1000px;               /* 全体の最大横幅 */
+  padding: 0 20px;                 /* 両サイド余白 */
+}
+
+/* ───────────────────────────────────────────
+   各ボックスのデフォルトスタイル
+─────────────────────────────────────────── */
+.box {
+  flex: 1;                         /* 均等幅 */
+  min-width: 200px;                /* 最小幅 */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* ───────────────────────────────────────────
+   ホバー（浮き上がり）エフェクト
+   JSで付与される .hover クラスと、
+   CSS :hover 両方に対応
+─────────────────────────────────────────── */
+.box.hover,
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
