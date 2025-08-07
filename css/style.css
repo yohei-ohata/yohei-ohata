@@ -99,3 +99,19 @@ span.highlight {
   transform: translateY(-10px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* ───────────────────────────────────────────
+   画像をホバー時に浮き上がらせるボックス風スタイル
+─────────────────────────────────────────── */
+.hover-image-box {
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.hover-image-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
