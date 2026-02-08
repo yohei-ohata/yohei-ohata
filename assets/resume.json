@@ -81,7 +81,7 @@
       "start": "September 2025",
       "end": "Present",
       "bullets": [
-        "Performed denoising on the DMCC55B Open fMRI dataset following the Ciric et al. (2017) pipeline and synchronized cross-subject temporal variability using BrainSync (MATLAB).",
+        "Performed denoising on the DMCC55B Open fMRI dataset (AX-CPT, Cued Task Switching, Sternberg Working Memory, Stroop) following the Ciric et al. (2017) pipeline and synchronized cross-subject temporal variability using BrainSync (Akrami et al. (2019)) (MATLAB).",
         "Applied NASCAR tensor decomposition to the DMCC55B dataset to decompose data into spatial, temporal, and subject-load modes (MATLAB).",
         "Quantified performance by indexing RT and Accuracy via the Cognitive Control Index (CCI), extracting contributory components using dCRT with d0 statistics (R).",
         "Evaluated spatial map similarity across cognitive tasks using t-SNE, ISOMAP, UMAP and feature selection via Nested Cross-Validation LASSO (Python)."
@@ -110,7 +110,7 @@
       "start": "May 2021",
       "end": "December 2021",
       "bullets": [
-        "Proposed a Composite Hilbert Transform that integrates a pre-normalized notch filter to suppress noise at specific frequencies.",
+        "Proposed a Composite Hilbert Transformer that integrates a pre-normalized notch filter to suppress noise at specific frequencies.",
         "Verified significant SNR improvements over conventional Band Pass Hilbert Transformer through extensive simulations in MATLAB."
       ]
     }
