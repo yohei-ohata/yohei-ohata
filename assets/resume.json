@@ -46,7 +46,7 @@
   "employment": [
     {
       "institution": "National Institute of Information and Communications Technology",
-      "title": "Research Scientist",
+      "title": "Research Assistant",
       "department": "Center for Information and Neural Networks (CiNet)",
       "lab": "Computational Social Neuroscience Group",
       "start": "January 2026",
@@ -54,7 +54,7 @@
     },
     {
       "institution": "Hitachi, Ltd.,",
-      "title": "Research Scientist",
+      "title": "Research Engineer",
       "department": "R&D Group",
       "start": "April 2024",
       "end": "December 2025"
@@ -63,14 +63,15 @@
 
   "researchExperience": [
     {
-      "title": "Research Scientist",
+      "title": "Research Assistant",
       "lab": "Computational Neuroscience & Decision Making Laboratory",
       "supervisor": "Haruno Masahiko",
       "institution": "National Institute of Information and Communications Technology",
       "start": "January 2026",
       "end": "Present",
       "bullets": [
-        "Investigated brain decoding foundation models incorporating attention mechanisms and VQ-VAE, while exploring latent variable frameworks such as CEBRA and FINDR for neural data analysis"
+        "Investigating papers dealing with alignment between LLM representations and human fMRI responses using brain decoding foundation models",
+        "Developed a toy attention-only Transformer model to examine how contextual representations are generated, updated, and used for next-token prediction"
       ]
     },
     {
@@ -81,10 +82,9 @@
       "start": "September 2025",
       "end": "Present",
       "bullets": [
-        "Performed denoising on the DMCC55B Open fMRI dataset (AX-CPT, Cued Task Switching, Sternberg Working Memory, Stroop) following the Ciric et al. (2017) pipeline and synchronized cross-subject temporal variability using BrainSync (Akrami et al. (2019)) (MATLAB).",
+        "Performed denoising on the DMCC55B Open fMRI dataset (AX-CPT, Cued Task Switching, Sternberg, Stroop) using BrainSync for synchronized cross-subject temporal alignment (MATLAB).",
         "Applied NASCAR tensor decomposition to the DMCC55B dataset to decompose data into spatial, temporal, and subject-load modes (MATLAB).",
-        "Quantified performance by indexing RT and Accuracy via the Cognitive Control Index (CCI), extracting contributory components using dCRT with d0 statistics (R).",
-        "Evaluated spatial map similarity across cognitive tasks using t-SNE, ISOMAP, UMAP and feature selection via Nested Cross-Validation LASSO (Python)."
+        "Quantified cognitive control performance by indexing RT and Accuracy via the Cognitive Control Index, extracting contributory components using conditional randomization testing (R)."
       ]
     },
     {
@@ -118,7 +118,7 @@
 
   "workExperience": [
     {
-      "title": "Research Scientist",
+      "title": "Research Engineer",
       "institution": "Hitachi, Ltd., Digital Innovation R&D",
       "start": "April 2024",
       "end": "December 2025",
@@ -212,22 +212,22 @@
 
   "references": [
     {
-      "name": "Hachisuka Satori, Ph.D.,",
-      "title": "Associate Professor",
-      "affiliation": "The University of Tokyo",
-      "email": "hachisuka@edu.k.u-tokyo"
+      "name": "Haruno Masahiko, Ph.D.,",
+      "title": "Professor",
+      "affiliation": "National Institute of Information and Communications Technology",
+      "email": "mharuno@nict.go.jp"
     },
     {
       "name": "Yamashita Ayumu, Ph.D.,",
       "title": "Assistant Professor",
       "affiliation": "Advanced Telecommunications Research Institute International",
       "email": "ayumu@atr.jp"
-    },    
+    },
     {
-      "name": "Haruno Masahiko, Ph.D.,",
-      "title": "Professor",
-      "affiliation": "National Institute of Information and Communications Technology",
-      "email": "mharuno@nict.go.jp"
+      "name": "Hachisuka Satori, Ph.D.,",
+      "title": "Associate Professor",
+      "affiliation": "The University of Tokyo",
+      "email": "hachisuka@edu.k.u-tokyo"
     }
   ]
 }
