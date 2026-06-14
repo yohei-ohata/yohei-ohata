@@ -81,6 +81,15 @@ ${awardText ? `{\\small ${awardText}} \\\\` : ""}
 \\par\\vspace{6pt}\n`;
 });
 
+tex += `\\section*{Academic Appointment}\n`;
+(rawData.academic-appointment || []).forEach(exp => {
+tex += `\\textbf{${safe(exp.institution)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\
+${safe(exp.title)} \\\\
+${safe(exp.department)} \\\\
+${safe(exp.lab)} \\\\
+\\par\\vspace{3pt}\n`;
+});
+
 tex += `\\section*{Employment}\n`;
 (rawData.employment || []).forEach(exp => {
 tex += `\\textbf{${safe(exp.institution)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\

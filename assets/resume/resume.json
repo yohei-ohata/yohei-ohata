@@ -1,0 +1,281 @@
+{
+  "basics": {
+    "name": "Yohei Ohata",
+    "email": "yohei.ohata.ee@nict.go.jp",
+    "portfolio": "yohei.ohata.github.io",
+    "institution": {
+      "department": "Center for Information and Neural Networks",
+      "institution": "National Institute of Information and Communications Technology"
+    },
+    "location": {
+      "address": "1-4, Yamadaoka",
+      "city": "Suita",
+      "prefecture": "Osaka",
+      "country": "Japan"
+    }
+  },
+
+  "education": [
+    {
+      "institution": "The University of Tokyo",
+      "location": "Tokyo, Japan",
+      "degree": "M.S. in Human Factors Engineering",
+      "department": "Department of Human and Engineered Environmental Studies",
+      "start": "April 2022",
+      "end": "March 2024",
+      "gpa": "4.0/4.0",
+      "details": {
+        "thesis": "Identifying Different Thought Processes for Each Learner Using Eye-Tracking and Hidden Markov Models",
+        "award": "1st in Class (1/48), Dean’s Award, Best Department Thesis Award"
+      }
+    },
+    {
+      "institution": "Tokyo University of Science",
+      "location": "Tokyo, Japan",
+      "degree": "B.E. in Electrical and Electronic Engineering",
+      "department": "Department of Applied Electronics",
+      "start": "April 2018",
+      "end": "March 2022",
+      "gpa": "3.5/4.0",
+      "details": {
+        "thesis": "A Method of Designing a Hilbert Transformer with Transmission Zeros at Specified Positions"
+      }
+    }
+  ],
+
+  "academicAppointment": [
+    {
+      "institution": "National Institute of Information and Communications Technology",
+      "title": "Research Engineer",
+      "department": "Center for Information and Neural Networks (CiNet)",
+      "start": "January 2026",
+      "end": "Present"
+    },
+    {
+      "institution": "The University of Tokyo",
+      "title": "Cooperative Visiting Researcher",
+      "department": "Graduate School of Information Science and Technology",
+      "start": "July 2026",
+      "end": "Present"
+    }
+  ],
+
+  "researchExperience": [
+    {
+      "title": "Research Engineer",
+      "lab": "Computational Neuroscience & Decision Making Laboratory",
+      "supervisor": "Masahiko Haruno",
+      "institution": "National Institute of Information and Communications Technology",
+      "start": "January 2026",
+      "end": "Present",
+      "bullets": [
+        "Investigating the degree to which attention mechanisms in Transformer architectures share functional and representational properties with hippocampal computation, and where the two diverge.",
+        "Trained a single-layer Transformer with one attention layer on random walks over a community-structured graph, finding that hippocampus-like representations emerge spontaneously.",
+        "Fitting a dynamical systems model to the Transformer's internal representations revealed that information retention time in attention heads increases with the number of communities, and inter-unit coupling strength grows as community transitions become more deterministic."
+      ]
+    },
+    {
+      "title": "Cooperative Visiting Researcher",
+      "lab": "Amano & Nakayama Lab",
+      "supervisor": "Ayumu Yamashita, Kaoru Amano",
+      "institution": "The University of Tokyo",
+      "start": "August 2025",
+      "end": "Present",
+      "bullets": [
+        "Identified task-general and task-specific neural substrates of cognitive control at both between- and within-subject levels using public fMRI datasets (AX-CPT, Cued Task Switching, Sternberg, Stroop)",
+        "Removed confounds via GLM-based nuisance regression and synchronized inter-subject timeseries using BrainSync (MATLAB)",
+        "Decomposed the synchronized data into spatial, temporal, and subject modes via tensor decomposition, extracting multiple network components",
+        "Identified task-general and task-specific networks based on inter-task correlations of spatial modes",
+        "Identified networks governing inter-subject variability in cognitive control performance using subject modes and conditional randomization test",
+        "Identified neural substrates underlying within-subject sustained attention states using temporal modes and GLMM"
+      ]
+    },
+    {
+      "title": "Research Assistant",
+      "lab": "Inovative Learning Creation Lab",
+      "supervisor": "Satori Hachisuka, Shin'ichi Warisawa",
+      "institution": "The University of Tokyo",
+      "start": "April 2022",
+      "end": "March 2024",
+      "bullets": [
+        "Designed experimental protocols for both adult and elementary school participants, including the development of a web-based UI and logging system using HTML/CSS/JS.",
+        "Managed high-fidelity eye-tracking data collection and processing using Tobii Pro 3 and Tobii Pro Lab.",
+        "Performed advanced statistical analysis using Linear Mixed-Effects Models (LMM) in R.",
+        "Modeled the temporal dynamics of scan paths using Hidden Markov Models (HMM) implemented in Python.",
+        "Conceptualized research goals, authored manuscripts."
+      ]
+    },
+    {
+      "title": "Research Assistant",
+      "lab": "Signal Processing Lab",
+      "supervisor": "Naoyuki Aikawa",
+      "institution": "Tokyo University of Science",
+      "start": "May 2021",
+      "end": "December 2021",
+      "bullets": [
+        "Proposed a Composite Hilbert Transformer that integrates a pre-normalized notch filter to suppress noise at specific frequencies.",
+        "Verified significant SNR improvements over conventional Band Pass Hilbert Transformer through extensive simulations in MATLAB."
+      ]
+    }
+  ],
+
+  "workExperience": [
+    {
+      "title": "Research Engineer",
+      "institution": "Hitachi, Ltd., Digital Innovation R&D",
+      "start": "April 2024",
+      "end": "December 2025",
+      "bullets": [
+        "Developed concepts and business use cases",
+        "Defined functional requirements and methodologies",
+        "Authored patent applications",
+        "Applied LLMs in service development",
+        "Established evaluation criteria for LLM verification"
+      ]
+    }
+  ],
+
+  "teachingExperience": [
+    {
+      "title": "Teaching Assistant",
+      "institution": "NICT CiNet, Computational Neuroscience & Decision Making Laboratory",
+      "start": "January 2026",
+      "end": "Present",
+      "bullets": [
+        "Delivered technical tutorials on Transformer internals and computational principles to 20+ lab members, covering QK/OV circuits and induction heads from a mechanistic interpretability perspective",
+        "Introduced modern ML tooling (PyTorch, JAX, uv) and implementation practices to lab members",
+        "Curated and presented 10+ landmark NeuroAI papers (past 5 years) to 20+ lab members, facilitating cross-disciplinary discussion between neuroscience and AI"
+      ]
+    },
+    {
+      "title": "Teaching Assistant",
+      "institution": "Sensing and Signal Processing, The University of Tokyo",
+      "start": "April 2023",
+      "end": "June 2023",
+      "bullets": [
+        "Assisted in building signal processing systems using LabVIEW"
+      ]
+    },
+    {
+      "title": "Teacher",
+      "institution": "Gakuho Seminar",
+      "start": "April 2019",
+      "end": "March 2022",
+      "bullets": [
+        "Taught Mathematics, Physics, Chemistry, and English to students in Years 10–18.",
+        "Created and managed individualized study plans to support academic progress.",
+        "Successfully guided over 30 students in passing their target school entrance examinations."
+      ]
+    }
+  ],
+
+  "publications": {
+    "journals": [
+      {
+        "authors": "Ohata, Y., Yamashita, A., & Amano, K.",
+        "title": "Neural Substrates of Cognitive Control and Their Individual Variability",
+        "year": "(in preparation)"
+      },
+      {
+        "authors": "Ohata, Y., & Haruno, M.",
+        "title": "Convergent and Divergent Computational Principles of Context Processing in Transformer Attention and the Hippocampal Formation",
+        "year": "(in preparation)"
+      },
+      {
+        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
+        "title": "Identifying Different Thought Processes for Each Learner Using Eye-Tracking and Hidden Markov Models",
+        "year": "(submitted)",
+        "journal": "Frontiers in Psychology"
+      }
+    ],
+    
+    "conferences": [
+      {
+        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
+        "title": "Visualizing and Revealing the Difference of Learner's Thought Process and Question Solving Method",
+        "year": "2024",
+        "conference": "In Proceedings of International Conference on Information and Communication Technology",
+        "url": ""
+      },
+      {
+        "authors": "Ohata, Y., Takao, K., Natori, T., & Aikawa, N",
+        "title": "A Method of Designing a Hilbert Transformer with Transmission Zeros at Specified Positions",
+        "year": "2021",
+        "conference": "ICICE Technical Report"
+      }
+    ],
+    "presentations": [
+      {
+        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
+        "title": "Analysis of How Learners Learn Using Graphic Questions",
+        "year": "2023",
+        "conference": "The 42nd Annual Conference of Japanese Society for Educational Technology"
+      },
+      {
+        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
+        "title": "Identifying Perceptual Factors that Influence Impression of a Teacher in a Classroom",
+        "year": "2022",
+        "conference": "The 41st Annual Conference of Japanese Society for Educational Technology"
+      }
+    ],
+    "patents": [
+      {
+        "authors": "Ohata, Y., Jin, Y.",
+        "title": "Management Issues Estimation Device Using Generative Artificial Intelligence",
+        "year": "2024",
+        "number": "JP-Patent"
+      },
+      {
+        "authors": "Ohata, Y., Jin, Y.",
+        "title": "Management Issues Estimation System Using Bayesian Network and Large Language Models",
+        "year": "2025",
+        "number": "JP-Patent"
+      }
+    ]
+  },
+
+  "awards": [
+    {
+      "title": "IEEE CAS JJC Best Student Award",
+      "year": "2021"
+    }
+  ],
+
+  "language": [
+    "High Level in English",
+    "Native in Japanese"
+  ],
+
+  "references": [
+    {
+      "name": "Masahiko Haruno, Ph.D.,",
+      "title": "Professor",
+      "affiliation": "National Institute of Information and Communications Technology",
+      "email": "mharuno@nict.go.jp"
+    },
+    {
+      "name": "Ayumu Yamashita, Ph.D.,",
+      "title": "Associate Professor",
+      "affiliation": [
+        "Kobe University",
+        "Advanced Telecommunications Research Institute International"
+      ],
+      "email": "ayumu@atr.jp"
+    },
+    {
+      "name": "Robert Mok, Ph.D.,",
+      "title": "Associate Professor",
+      "affiliation": [
+        "Osaka University",
+        "National Institute of Information and Communications Technology"
+      ],
+      "email": "robmmok@gmail.com"
+    },
+    {
+      "name": "Satori Hachisuka, Ph.D.,",
+      "title": "Associate Professor",
+      "affiliation": "The University of Tokyo",
+      "email": "hachisuka@edu.k.u-tokyo"
+    }
+  ]
+}

@@ -43,15 +43,27 @@
     }
   ],
 
-  "employment": [
+
+  "academic-appointment": [
     {
       "institution": "National Institute of Information and Communications Technology",
-      "title": "Research Assistant",
+      "title": "Research Engineer",
       "department": "Center for Information and Neural Networks (CiNet)",
       "lab": "Computational Social Neuroscience Group",
       "start": "January 2026",
       "end": "Present"
     },
+    {
+      "institution": "The University of Tokyo",
+      "title": "Cooperative Visiting Researcher",
+      "department": "Graduate School of Information Science and Technology",
+      "lab": "Amano Lab",
+      "start": "July 2026",
+      "end": "Present"
+    }
+  ],
+
+  "employment": [
     {
       "institution": "Hitachi, Ltd.,",
       "title": "Research Engineer",
@@ -70,8 +82,8 @@
       "start": "January 2026",
       "end": "Present",
       "bullets": [
-        "Investigating papers dealing with alignment between LLM representations and human fMRI responses using brain decoding foundation models",
-        "Developed a toy attention-only Transformer model to examine how contextual representations are generated, updated, and used for next-token prediction"
+        "Trained a toy Transformer model on random walks over a community-structured graph and visualized the internal representations as a Hopfield energy landscape.",
+        "Elucidating shared and distinct computational principles underlying hippocampal memory and the attention mechanism."
       ]
     },
     {
@@ -82,8 +94,8 @@
       "start": "September 2025",
       "end": "Present",
       "bullets": [
-        "Performed denoising on the DMCC55B Open fMRI dataset (AX-CPT, Cued Task Switching, Sternberg, Stroop) using BrainSync for synchronized cross-subject temporal alignment (MATLAB).",
-        "Applied NASCAR tensor decomposition to the DMCC55B dataset to decompose data into spatial, temporal, and subject-load modes (MATLAB).",
+        "Performed cross-subject temporal synchronizing on the fMRI dataset (AX-CPT, Cued Task Switching, Sternberg, Stroop) using BrainSync (MATLAB).",
+        "Applied tensor decomposition to the DMCC55B dataset to decompose data into spatial, temporal, and subject-load modes (MATLAB).",
         "Quantified cognitive control performance by indexing RT and Accuracy via the Cognitive Control Index, extracting contributory components using conditional randomization testing (R)."
       ]
     },
@@ -100,34 +112,6 @@
         "Performed advanced statistical analysis using Linear Mixed-Effects Models (LMM) in R.",
         "Modeled the temporal dynamics of scan paths using Hidden Markov Models (HMM) implemented in Python.",
         "Conceptualized research goals, authored manuscripts."
-      ]
-    },
-    {
-      "title": "Research Assistant",
-      "lab": "Signal Processing Lab",
-      "supervisor": "Aikawa Naoyuki",
-      "institution": "Tokyo University of Science",
-      "start": "May 2021",
-      "end": "December 2021",
-      "bullets": [
-        "Proposed a Composite Hilbert Transformer that integrates a pre-normalized notch filter to suppress noise at specific frequencies.",
-        "Verified significant SNR improvements over conventional Band Pass Hilbert Transformer through extensive simulations in MATLAB."
-      ]
-    }
-  ],
-
-  "workExperience": [
-    {
-      "title": "Research Engineer",
-      "institution": "Hitachi, Ltd., Digital Innovation R&D",
-      "start": "April 2024",
-      "end": "December 2025",
-      "bullets": [
-        "Developed concepts and business use cases",
-        "Defined functional requirements and methodologies",
-        "Authored patent applications",
-        "Applied LLMs in service development",
-        "Established evaluation criteria for LLM verification"
       ]
     }
   ],
@@ -149,51 +133,7 @@
       {
         "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
         "title": "Identifying Different Thought Processes for Each Learner Using Eye-Tracking and Hidden Markov Models",
-        "year": "(submitted)",
-        "journal": "Human Factors"
-      }
-    ],
-    "conferences": [
-      {
-        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
-        "title": "Visualizing and Revealing the Difference of Learner's Thought Process and Question Solving Method",
-        "year": "2024",
-        "conference": "In Proceedings of International Conference on Information and Communication Technology",
-        "url": ""
-      },
-      {
-        "authors": "Ohata, Y., Takao, K., Natori, T., & Aikawa, N",
-        "title": "A Method of Designing a Hilbert Transformer with Transmission Zeros at Specified Positions",
-        "year": "2021",
-        "conference": "ICICE Technical Report"
-      }
-    ],
-    "presentations": [
-      {
-        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
-        "title": "Analysis of How Learners Learn Using Graphic Questions",
-        "year": "2023",
-        "conference": "The 42nd Annual Conference of Japanese Society for Educational Technology"
-      },
-      {
-        "authors": "Ohata, Y., Hachisuka, S., Kurita, K., & Warisawa, S.",
-        "title": "Identifying Perceptual Factors that Influence Impression of a Teacher in a Classroom",
-        "year": "2022",
-        "conference": "The 41st Annual Conference of Japanese Society for Educational Technology"
-      }
-    ],
-    "patents": [
-      {
-        "authors": "Ohata, Y., Jin, Y.",
-        "title": "Management Issues Estimation Device",
-        "year": "2024",
-        "number": "JP-Patent"
-      },
-      {
-        "authors": "Ohata, Y., Jin, Y.",
-        "title": "Management Issues Estimation System Using Bayesian Network and Large Language Models",
-        "year": "2025",
-        "number": "JP-Patent"
+        "year": "(submitted)"
       }
     ]
   },
@@ -218,13 +158,19 @@
       "email": "mharuno@nict.go.jp"
     },
     {
-      "name": "Yamashita Ayumu, Ph.D.,",
-      "title": "Assistant Professor",
-      "affiliation": "Advanced Telecommunications Research Institute International",
-      "email": "ayumu@atr.jp"
+      "name": "Ayumu Yamashita, Ph.D.,",
+      "title": "Associate Professor",
+      "affiliation": "Kobe University",
+      "email": "ayumu722@people.kobe-u.ac.jp"
     },
     {
-      "name": "Hachisuka Satori, Ph.D.,",
+      "name": "Robert Mok, Ph.D.,",
+      "title": "Principal Investigator",
+      "affiliation": "National Institute of Information and Communications Technology",
+      "email": "robmmok@gmail.com"
+    },
+    {
+      "name": "Satori Hachisuka, Ph.D.,",
       "title": "Associate Professor",
       "affiliation": "The University of Tokyo",
       "email": "hachisuka@edu.k.u-tokyo"
