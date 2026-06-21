@@ -22,15 +22,17 @@ function safe(str) {
 function formatCitation(pub) {
   let authors = safe(pub.authors).replace(/Ohata, Y\./g, "\\textbf{Ohata, Y.}");
   let title = safe(pub.title);
-  let year = safe(pub.year); // Fixed: restored this
-  let yearDisplay = year.includes('(') ? year : `(${year})`;
+  let year = safe(pub.year);
+  let yearDisplay = year.includes('(') ? year : `(${year}).`;
+  const presType = pub.type ? ` [${safe(pub.type)}]` : '';
 
   if (pub.number) {
     let number = safe(pub.number);
-    return `${authors} ${yearDisplay}. \`\`${title}''. ${number}.`;
+    return `${authors} ${yearDisplay}${presType}. \`\`${title}''. ${number}.`;
   } else {
-    let venue = pub.journal ? `\\textit{${safe(pub.journal)}}` : `\\textit{${safe(pub.conference)}}`;
-    return `${authors} ${yearDisplay}. ${title}. ${venue}.`;
+    const venueName = pub.journal || pub.conference;
+    const venue = venueName ? ` \\textit{${safe(venueName)}}.` : '';
+    return `${authors} ${yearDisplay}${presType}. ${title}.${venue}`;
   }
 }
 
@@ -58,14 +60,14 @@ let tex = `\\documentclass[letterpaper,10.5pt]{article}
 
 % --- FIXED HEADER TABLE ---
 \\begin{tabularx}{\\textwidth}{@{}X r@{}}
-{\\LARGE \\textbf{${data.name}} \\hspace{10pt} Curriculum Vitae} & \\\\ % Added missing '&' here
-\\noalign{\\vspace{6pt}}
-${safe(rawData.basics.institution.department)} & \\href{mailto:${data.email}}{${data.email}} \\\\
-${safe(rawData.basics.institution.institution)} & \\href{${data.portfolioUrl}}{${data.portfolioText}} \\\\
+{\\LARGE \\textbf{${data.name}}} \\\\
+\\noalign{\\vspace{3pt}}
+${safe(rawData.basics.institution.institution)} & \\href{mailto:${data.email}}{${data.email}} \\\\
+${safe(rawData.basics.institution.department)} & \\\\
 ${safe(rawData.basics.location.address)}, ${safe(rawData.basics.location.city)}, ${safe(rawData.basics.location.prefecture)}, ${safe(rawData.basics.location.country)} & \\\\
 \\end{tabularx}
 
-\\vspace{10pt}
+\\vspace{5pt}
 
 \\section*{Education}\n`;
 
@@ -78,17 +80,30 @@ ${safe(edu.department)} \\\\
 Cumulative GPA: ${safe(edu.gpa)} \\\\
 ${thesisText ? `{\\small \\textit{Thesis}: ${thesisText}} \\\\` : ""}
 ${awardText ? `{\\small ${awardText}} \\\\` : ""}
-\\par\\vspace{6pt}\n`;
+\\par\\vspace{2pt}\n`;
 });
 
-tex += `\\section*{Academic Appointment}\n`;
-(rawData.academicAppointment || []).forEach(exp => {
-tex += `\\textbf{${safe(exp.institution)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\
-${safe(exp.title)} \\\\
-${safe(exp.department)} \\\\
-${safe(exp.lab)} \\\\
-\\par\\vspace{3pt}\n`;
-});
+
+// --- AWARD SECTION ---
+tex += `\\section*{Honors and Awards}\n`;
+tex += `\\begin{tabularx}{\\textwidth}{@{}p{0.8cm} X@{}}\n`;
+(rawData.awards || [])
+  .slice()
+  .sort((a, b) => b.year - a.year)
+  .forEach(exp => {
+    const titleLines = exp.title.split('|').map(safe).join(' \\newline ');
+    tex += `${safe(exp.year)} & ${titleLines} \\\\ \n`;
+  });
+tex += `\\end{tabularx}\n`;
+
+// tex += `\\section*{Academic Appointment}\n`;
+// (rawData.academicAppointment || []).forEach(exp => {
+// tex += `\\textbf{${safe(exp.institution)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\
+// ${safe(exp.title)} \\\\
+// ${safe(exp.department)} \\\\
+// ${safe(exp.lab)} \\\\
+// \\par\\vspace{3pt}\n`;
+// });
 
 // tex += `\\section*{Employment}\n`;
 // (rawData.employment || []).forEach(exp => {
@@ -100,55 +115,50 @@ ${safe(exp.lab)} \\\\
 // });
 
 
-tex += `\\section*{Publications}\n`;
-
-// JOURNALS (J1, J2...)
-if (rawData.publications.journals && rawData.publications.journals.length > 0) {
-  tex += `\\subsection*{Articles in Peer-Reviewed Journals}\n`;
-  tex += `\\begin{enumerate}[label=\\textbf{J\\arabic*}, leftmargin=35pt]\n`;
-  rawData.publications.journals.forEach(j => { tex += `  \\item ${formatCitation(j)}\n`; });
-  tex += `\\end{enumerate}\\vspace{2pt}\n`;
-}
-
-// CONFERENCES (C1, C2...)
-if (rawData.publications.conferences && rawData.publications.conferences.length > 0) {
-  tex += `\\subsection*{Peer-Reviewed Conference Proceedings}\n`;
-  tex += `\\begin{enumerate}[label=\\textbf{C\\arabic*}, leftmargin=35pt]\n`;
-  rawData.publications.conferences.forEach(c => { tex += `  \\item ${formatCitation(c)}\n`; });
-  tex += `\\end{enumerate}\\vspace{2pt}\n`;
-}
-
-// PRESENTATIONS (P1, P2...)
-if (rawData.publications.presentations && rawData.publications.presentations.length > 0) {
-  tex += `\\subsection*{Conference Presentations}\n`;
-  tex += `\\begin{enumerate}[label=\\textbf{P\\arabic*}, leftmargin=35pt]\n`;
-  rawData.publications.presentations.forEach(p => { tex += `  \\item ${formatCitation(p)}\n`; });
-  tex += `\\end{enumerate}\\vspace{2pt}\n`;
-}
-
-// PATENTS (T1, T2...) - Fixed path: rawData.publications.patents
-if (rawData.publications.patents && rawData.publications.patents.length > 0) {
-  tex += `\\subsection*{Patents}\n`;
-  tex += `\\begin{enumerate}[label=\\textbf{T\\arabic*}, leftmargin=35pt]\n`;
-  rawData.publications.patents.forEach(p => { tex += `  \\item ${formatCitation(p)}\n`; });
-  tex += `\\end{enumerate}\\vspace{3pt}\n`;
-}
-
 // --- RESEARCH EXPERIENCE ---
 tex += `\\section*{Research Experience}\n`;
 (rawData.researchExperience || []).forEach(exp => {
   tex += `\\textbf{${safe(exp.title)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\ \n`;
   tex += `${safe(exp.institution)} \\\\ \n`;
-  tex += `{\\small {Laboratory: ${safe(exp.lab)}}} \\\\ \n`;
+  tex += `${safe(exp.department)} \\\\ \n`;
+  tex += `{\\small {${safe(exp.lab)}}} \\\\ \n`;
   if (exp.supervisor) tex += `{\\small \\textit{Supervisor: ${safe(exp.supervisor)}}} \\\\ \n`;
-
   if (exp.bullets && exp.bullets.length > 0) {
-    tex += `\\begin{itemize}\n`;
+    tex += `\\vspace{-5pt}\n`;
+    tex += `\\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt]\n`;
     (exp.bullets || []).forEach(b => { tex += `  \\item ${safe(b)}\n`; });
     tex += `\\end{itemize}\n`;
   }
-  tex += `\\vspace{8pt}\n`;
+  tex += `\\vspace{30pt}\n`;
 });
+
+tex += `\\section*{Publications}\n`;
+
+// JOURNALS
+if (rawData.publications.journals && rawData.publications.journals.length > 0) {
+  tex += `\\subsection*{Journal Articles}\n`;
+  tex += `\\begin{itemize}[label={}, leftmargin=15pt, itemsep=4pt, parsep=0pt, topsep=2pt]\n`;
+  rawData.publications.journals.forEach(j => { tex += `  \\item ${formatCitation(j)}\n`; });
+  tex += `\\end{itemize}\\vspace{2pt}\n`;
+}
+
+// CONFERENCES
+if (rawData.publications.conferences && rawData.publications.conferences.length > 0) {
+  tex += `\\subsection*{Peer-Reviewed Conference Proceedings}\n`;
+  tex += `\\begin{itemize}[label={}, leftmargin=15pt, itemsep=4pt, parsep=0pt, topsep=2pt]\n`;
+  rawData.publications.conferences.forEach(c => { tex += `  \\item ${formatCitation(c)}\n`; });
+  tex += `\\end{itemize}\\vspace{2pt}\n`;
+}
+
+// PRESENTATIONS
+if (rawData.publications.presentations && rawData.publications.presentations.length > 0) {
+  tex += `\\subsection*{Conference Presentations}\n`;
+  tex += `\\begin{itemize}[label={}, leftmargin=15pt, itemsep=4pt, parsep=0pt, topsep=2pt]\n`;
+  rawData.publications.presentations.forEach(p => { tex += `  \\item ${formatCitation(p)}\n`; });
+  tex += `\\end{itemize}\\vspace{2pt}\n`;
+}
+
+
 
 // --- Work EXPERIENCE ---
 tex += `\\section*{Professional Experience}\n`;
@@ -156,38 +166,43 @@ tex += `\\section*{Professional Experience}\n`;
   tex += `\\textbf{${safe(exp.title)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\ \n`;
   tex += `${safe(exp.institution)} \\\\ \n`;
   if (exp.bullets && exp.bullets.length > 0) {
-    tex += `\\begin{itemize}\n`;
+    tex += `\\vspace{-5pt}\n`;
+    tex += `\\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt]\n`;
     (exp.bullets || []).forEach(b => { tex += `  \\item ${safe(b)}\n`; });
     tex += `\\end{itemize}\n`;
   }
-  tex += `\\vspace{8pt}\n`;
+  tex += `\\vspace{25pt}\n`;
 });
 
 // --- TEACHING EXPERIENCE ---
 tex += `\\section*{Teaching Experience}\n`;
 (rawData.teachingExperience || []).forEach(exp => {
-  tex += `\\textbf{${safe(exp.title)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\
-${safe(exp.institution)} \\\\
-\\begin{itemize}\n`;
+  tex += `\\textbf{${safe(exp.title)}} \\hfill ${safe(exp.start)} -- ${safe(exp.end)} \\\\\n`;
+  tex += `${safe(exp.institution)} \\\\ \n`;
+  if (exp.department) {
+    tex += `${safe(exp.department)} \\\\ \n`;
+  }
+  if (exp.course) {
+    tex += `\\textit{Course: ${safe(exp.course)}} \\\\\n`;
+  }
+
+  
+  const hasDept = !!exp.department;
+  const hasCourse = !!exp.course;
+  let preBulletSpace;
+  if (hasDept && hasCourse) {
+    preBulletSpace = '-7pt';
+  } else if (hasDept || hasCourse) {
+    preBulletSpace = '-12pt';
+  } else {
+    preBulletSpace = '-7pt';
+  }
+
+  tex += `\\vspace{${preBulletSpace}}\n`;
+  tex += `\\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt]\n`;
   (exp.bullets || []).forEach(b => { tex += `  \\item ${safe(b)}\n`; });
-  tex += `\\end{itemize}\\vspace{5pt}\n`;
+  tex += `\\end{itemize}\\vspace{25pt}\n`;
 });
-
-tex += `\\section*{Honors and Awards}\n`;
-(rawData.awards || []).forEach(exp => {
-  // Removed the extra } at the end
-  tex += `${safe(exp.title)} \\hfill ${safe(exp.year)} \\\\ \n`;
-});
-
-// --- LANGUAGES SECTION ---
-if (rawData.language && rawData.language.length > 0) {
-  tex += `\\section*{Languages}\n`;
-  tex += `\\begin{itemize}[leftmargin=15pt]\n`;
-  rawData.language.forEach(lang => {
-    tex += `  \\item ${safe(lang)}\n`;
-  });
-  tex += `\\end{itemize}\\vspace{5pt}\n`;
-}
 
 // --- REFERENCES SECTION ---
 if (rawData.references && rawData.references.length > 0) {
